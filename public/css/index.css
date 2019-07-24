@@ -59,3 +59,12 @@ body{
  .containerPhoto{
      text-align:center;
  }
+ .formEmpty{
+     background-color: red;
+     padding: .3em;
+    text-align:center;
+    color: white;
+    border:none;
+    border-radius: 3px;
+    font-family: sans-serif
+ }

@@ -9,25 +9,15 @@
     text-align:center;
 }
 .bodyError{
-
-    /* opacity: .5; */
-    animation:errorBody 1s linear;
+    animation:errorBody .3s linear;
 }
 @keyframes errorBody {
 
-    10%{
-        background-color:red;
-    }
-    40%{
-        background-color:white;
-    }
-    80%{
+    50%{
         background-color:red;
     }
     90%{
         background-color:white;
     }
-    100%{
-        background-color:red;
-    }
+
 }
