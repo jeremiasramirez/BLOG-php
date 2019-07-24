@@ -11,10 +11,23 @@
 .bodyError{
 
     /* opacity: .5; */
-    animation:errorBody .2s linear;
+    animation:errorBody 1s linear;
 }
 @keyframes errorBody {
-    to{
-        background-color:rgba(60%, 10%, 10%, 70%);
+
+    10%{
+        background-color:red;
+    }
+    40%{
+        background-color:white;
+    }
+    80%{
+        background-color:red;
+    }
+    90%{
+        background-color:white;
+    }
+    100%{
+        background-color:red;
     }
 }
