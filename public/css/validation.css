@@ -1,0 +1,20 @@
+.error{
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    padding: .4em;
+    font-family: arial;
+    font-weight: 600;
+    margin:.3em;
+    text-align:center;
+}
+.bodyError{
+
+    /* opacity: .5; */
+    animation:errorBody .2s linear;
+}
+@keyframes errorBody {
+    to{
+        background-color:rgba(60%, 10%, 10%, 70%);
+    }
+}
