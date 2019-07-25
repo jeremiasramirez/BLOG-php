@@ -1,5 +1,9 @@
 body{
      /* background-color:#222 */
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column
 }
 .form__publish{
     display: flex;
@@ -66,5 +70,61 @@ body{
     color: white;
     border:none;
     border-radius: 3px;
+    font-weight:600;
     font-family: sans-serif
  }
+ .goForm{
+    background-color: rgb(23, 218, 23);
+    padding: .3em;
+   text-align:center;
+   color: white;
+   border:none;
+   border-radius: 3px;
+   font-weight:600;
+   font-family: sans-serif
+ }
+ 
+.publication{
+    margin-top: 5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding:.3em 3em;
+    background-color:#333;
+    width:400px;
+}
+
+
+.articleBlog{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+  
+   
+}
+.titleArticle{
+    font-family: sans-serif;
+    font-size: 1.5em;
+    margin:0
+}
+.containerImg{
+    display: flex;
+    justify-content: center;
+    padding-left:1em;
+   
+}
+.imageArticle{
+    width:100%;
+    transform:scale(.7);
+}
+.containerDescription{
+    display:flex;
+    justify-content: center;
+
+}
+.time__blog{
+    font-family:arial;
+    font-weight: 600;
+    font-size:12px;
+}

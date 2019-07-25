@@ -2,7 +2,11 @@ let form =  document.getElementById("form__publish");
 let title = document.getElementById("titleArticle");
 let description = document.getElementById("textPublish");
 let btnSend = document.getElementById("button__publish");
-
+if(document.getElementById("emptyCamp")){
+    setTimeout(()=>{
+        document.getElementById("emptyCamp").remove();
+    },2000)
+}
 function messageError(){
     //validando si no hay otro mensaje de error
 
