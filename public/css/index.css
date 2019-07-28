@@ -85,6 +85,7 @@ body{
    font-family: sans-serif
  }
  
+
 .publication{
     margin-top: 5em;
     display: flex;
@@ -96,8 +97,23 @@ body{
     border-radius: 10px;
     width:400px;
 }
-
-
+.publication:hover{
+    opacity: .5;
+    transform: translateY(-5px);
+    box-shadow: .3px .3px 8px 4px #eee;
+    transition: .3s;
+    cursor: pointer;
+}
+ @media screen and (min-width: 300px){
+    .publication{
+        width: 200px;
+    }
+}
+ @media screen and (min-width: 1000px){
+    .publication{
+        width: 500px;
+    }
+}
 .articleBlog{
     display:flex;
     justify-content: center;
@@ -108,7 +124,10 @@ body{
 .titleArticle{
     font-family: sans-serif;
     font-size: 1.5em;
-    margin:0
+    margin:.5em 0;
+    color:white;
+    word-wrap: wrap;
+   text-align: center;
 }
 .containerImg{
     display: flex;
@@ -129,12 +148,20 @@ body{
     font-family:arial;
     font-weight: 600;
     font-size:12px;
+    color:#eee;
+    animation: toggle 2s infinite linear;
+}
+@keyframes toggle{
+    to{
+        color: #777;
+    }
 }
 .descriptionArticle{
-    color: #eee;
+    color: #ccc;
     font-family: arial;
     font-size:19px;
     letter-spacing: .3px;
     word-spacing: 1px;
-    word-break: break-all;
+     word-wrap: wrap;
+
 }
