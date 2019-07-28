@@ -1,9 +1,10 @@
 body{
-     /* background-color:#222 */
      display: flex;
      justify-content: center;
      align-items: center;
-     flex-direction: column
+     flex-direction: column;
+    background-color:#333;
+
 }
 .form__publish{
     display: flex;
@@ -91,7 +92,8 @@ body{
     align-items: center;
     flex-direction: column;
     padding:.3em 3em;
-    background-color:#333;
+    background-color:black;
+    border-radius: 10px;
     width:400px;
 }
 
@@ -127,4 +129,12 @@ body{
     font-family:arial;
     font-weight: 600;
     font-size:12px;
+}
+.descriptionArticle{
+    color: #eee;
+    font-family: arial;
+    font-size:19px;
+    letter-spacing: .3px;
+    word-spacing: 1px;
+    word-break: break-all;
 }

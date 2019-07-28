@@ -40,54 +40,38 @@ if(isset($_GET["go"]) && $_GET["go"]=="go"){
                 $conector = true;
             }
         }
-        if( ($conector) == true){
-     
-            print("<div class=form__container id=form__container> 
-                <h1 class=titlecontainer>Publicar un articulo</h1>
-                <form action='php/validating.php' method=post class=form__publish id=form__publish enctype='multipart/form-data'>
-                   
-                <input type='text'  placeholder='Titulo de mi articulo' name=title class=title__article id=titleArticle>
-
-                        <textarea name='text' class='textPublish' placeholder='Descripcion de mi articulo' id='textPublish' cols='30' rows='10'></textarea>
-                            
-                        <p class=containerPhoto>
-                            <input type='file' name=photo id=photo class=photo >
-                        </p>
-
-                        <button class='button__publish' id=button__publish>Publicar articulo</button>
-
-                </form>
-                
-            </div>");
-}
 
 //mostrado de elementos
 
-$statementpublication = "SELECT * FROM blogspot";
 
-$queryPublication = mysqli_query($conection, $statementpublication);
 
-while($publication=mysqli_fetch_array($queryPublication)){
-    print(
-        "<section class=publication id=publication>
-            
-            <span class='time__blog'>$publication[blogDateTime]</span>
-            <article class='articleBlog' id='articleBlog'>
-                <h1 class='titleArticle'>$publication[blogTitle]</h1>
-                <div class=containerimg>
-                <img src='php/uploads/blogsimg/$publication[blogImage]' class='imageArticle' id='imageArticle' />
-                </div>
-                <div class='containerDescription'>
-                <p class='descriptionArticle' id='descriptionArticle'> 
-                   $publication[blogDescription]
-                </p>
-                </div>
-            </article>
+        if( $conector == true){
+            $statementpublication = "SELECT * FROM blogspot";
 
-        </section>
-        "
-    );
-    
+            $queryPublication = mysqli_query($conection, $statementpublication);
+
+                while($publication=mysqli_fetch_array($queryPublication)){
+                    print(
+                        "<section class=publication id=publication>
+                            
+                            <span class='time__blog'>$publication[blogDateTime]</span>
+                            <article class='articleBlog' id='articleBlog'>
+                                <h1 class='titleArticle'>$publication[blogTitle]</h1>
+                                <div class=containerimg>
+                                <img src='php/uploads/blogsimg/$publication[blogImage]' class='imageArticle' id='imageArticle' />
+                                </div>
+                                <div class='containerDescription'>
+                                <p class='descriptionArticle' id='descriptionArticle'> 
+                                   $publication[blogDescription]
+                                </p>
+                                </div>
+                            </article>
+
+                        </section>
+                        "
+                    );  
+            }
+
 }
 
 
