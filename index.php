@@ -36,7 +36,7 @@ if(isset($_GET["go"]) && $_GET["go"]=="go"){
 
 
         while($user=mysqli_fetch_array($queryUser)){
-            if($user["username"]=="jere21000" && $user["passuser"]=="jere21000"){
+            if("jere21000" == $user["username"] &&"jere21000" == $user["passuser"]){
                 $conector = true;
             }
         }
@@ -46,6 +46,10 @@ if(isset($_GET["go"]) && $_GET["go"]=="go"){
 
 
         if( $conector == true){
+
+            }
+
+
             $statementpublication = "SELECT * FROM blogspot";
 
             $queryPublication = mysqli_query($conection, $statementpublication);
@@ -71,10 +75,6 @@ if(isset($_GET["go"]) && $_GET["go"]=="go"){
                         "
                     );  
             }
-
-}
-
-
 
 
 
