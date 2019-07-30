@@ -3,9 +3,11 @@ body{
      justify-content: center;
      align-items: center;
      flex-direction: column;
+     margin:0;
     background-color:#333;
-
+    padding:0;
 }
+
 .form__publish{
     display: flex;
     justify-content: center;
@@ -65,8 +67,8 @@ body{
      text-align:center;
  }
  .formEmpty{
-     background-color: red;
-     padding: .3em;
+    background-color: red;
+    padding: .5em;
     text-align:center;
     color: white;
     border:none;
@@ -165,4 +167,18 @@ body{
     word-spacing: 1px;
      word-wrap: wrap;
 
+}
+.titleBlogOfDay{
+    border-radius: 5px;
+    padding: .2em;
+    position: sticky;
+    top: 0;
+    color: #eee;
+    z-index: 100;
+    font-family: serif;
+    text-align: center;
+    margin:5px;
+    background: rgba(10%,10%, 10%, 95%);
+    font-size: 28px;
+    width: 100vh;
 }

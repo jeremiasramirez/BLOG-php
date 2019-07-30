@@ -23,10 +23,17 @@ if(isset($_GET["go"]) && $_GET["go"]=="go"){
     print("<p class='goForm' id=emptyCamp>Articulo publicado correctamente!</p>");
    
 }
+if(isset($_GET["imgfailed"]) && $_GET["imgfailed"]=="imgfailed"){
+    print("<p class='formEmpty' id=formEmpty>Articulo no publicado debido a que falta una imagen en el articulo!</p>");
+   
+}
 
 
+
+print("<h1 class='titleBlogOfDay'>Blogs del dia</h1>");
 ?>
- 
+ <div class="containerAllBlogs">
+
     <?php 
 
         include "php/model/model.php";
@@ -51,7 +58,7 @@ if(isset($_GET["go"]) && $_GET["go"]=="go"){
                 <h1 class=titlecontainer>Publicar un articulo</h1>
                 <form action='php/validating.php' method=post class=form__publish id=form__publish enctype='multipart/form-data'>
                    
-                <input type='text'  placeholder='Titulo de mi articulo' name=title class=title__article id=titleArticle>
+                <input type='text'  placeholder='Titulo de mi articulo' name='title' class=title__article id=titleArticle>
 
                         <textarea name='text' class='textPublish' placeholder='Descripcion de mi articulo' id='textPublish' cols='30' rows='10'></textarea>
                             
@@ -65,7 +72,6 @@ if(isset($_GET["go"]) && $_GET["go"]=="go"){
                 
             </div>");
             }
-
 
             $statementpublication = "SELECT * FROM blogspot";
 
@@ -99,6 +105,8 @@ if(isset($_GET["go"]) && $_GET["go"]=="go"){
 
 
 ?>
+     
+ </div>
 <script src="public/js/validation.js"></script>
 </body>
 </html>

@@ -18,15 +18,20 @@ else
         $title=$_POST['title'];
         $title = strip_tags($_POST['title']);
         $title = addslashes($_POST['title']);
-        $title = htmlentities($_POST['title'], ENC_QUOTES);
         $text=$_POST['text'];
         $text=strip_tags($_POST['text']);
-        $text=htmlentities($_POST['text'], ENC_QUOTES);
         $text=addslashes($_POST['text']);
 
+        $times = time();
+        $times = date('d/m/Y', $times);
         $photo=$_FILES['photo']["name"];
-        mysqli_query($conection, "INSERT INTO blogspot (blogTitle, blogImage, blogDescription) VALUES ('$title', '$photo','$text')");
+
+       if($title!=""){
+            
+        $statementinsert = "INSERT into blogspot (blogTitle, blogDescription, blogImage, blogDateTime) VALUES ('$title', '$text', '$photo', '$times')";
+        mysqli_query($conection, $statementinsert);
         header("Location: ../index.php?go=go");
+         }
     }
     else{
         header("Location: ../index.php?imgfailed=imgfailed");
@@ -35,9 +40,6 @@ else
 
 
  
-
-
-
 
 
 ?>
