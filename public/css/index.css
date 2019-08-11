@@ -182,3 +182,22 @@ body{
     font-size: 28px;
     width: 100vh;
 }
+.responsivelogin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+}
+#code{
+    padding:1em;
+    width: 300px;
+}
+
+
+
+
+
+
+
+
+

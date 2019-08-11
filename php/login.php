@@ -1,6 +1,6 @@
 <?php 
 session_start();
- 
+$_SESSION["admin"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,15 +17,7 @@ session_start();
 <div class="responsivelogin">
 	<p class="title_login fas fa-user"></p>
 
-	<form action="../index.php" method="POST" class="form">
-	<?php
-		// if(isset($_GET["thank"]) and $_GET["thank"] =="thankyou"){
-		// 	print("<p class=visitweb id=messageText>Muchas gracias por visitarnos!</p>");
-		// }
-		// if(isset($_GET["registered"]) and $_GET["registered"] =="true"){
-		// 	print("<p class=visitweb>Se ha registrado correctamente!</p>");
-		// }	
-	?>
+	<form action="" method="POST" class="form">
 
 		<p id="error_login" class="error_login"></p>
 		<input type="password" name="code" placeholder="ADMIN CODE"  id="code" autocomplete="off">
@@ -41,7 +33,31 @@ session_start();
 </div>
 
 
- 
+<?php 
+       include "model/model.php";
+        $statementUser = "SELECT CODE_ from userRoot";
+        $queryUser = mysqli_query($conection, $statementUser);
+        $conector = false;
+
+        if(isset($_POST["code"]) && !empty($_POST["code"])){
+        	$code = $_POST["code"];
+	        while($user=mysqli_fetch_array($queryUser)){
+
+	            if($code == $user["CODE_"]){
+	                $conector = true;
+	            }
+
+	        }
+
+        }
+
+        if($conector === true){
+        	$_SESSION["admin"] = "admin";
+        	header("Location: ../index.php?init=admin");
+        }
+   
+       
+?> 
 
 <style type="text/css">
 .responsivelogin{

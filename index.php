@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+ 
 
 ?>
 <!DOCTYPE html>
@@ -14,7 +14,16 @@ session_start();
     <link rel="stylesheet" href="public/css/validation.css">
 </head>
 <body>
-<?php 
+ <?php    
+    if(!isset($_SESSION["admin"]) && $_SESSION["admin"]!="admin"){
+
+       echo "<header>
+                <nav>
+                    <p class='login'><a href='php/login.php' class='login'>Iniciar sesion</a></p>
+                </nav>
+            </header>";
+    }
+
 
 if(isset($_GET["empty"]) && $_GET["empty"]=="empty"){
     print("<p class='formEmpty' id=emptyCamp>No puede haber campos vacios</p>");
@@ -37,13 +46,13 @@ print("<h1 class='titleBlogOfDay'>Blogs del dia</h1>");
     <?php 
 
         include "php/model/model.php";
-        $statementUser = "SELECT * from userRoot";
+        $statementUser = "SELECT CODE_ from userRoot";
         $queryUser = mysqli_query($conection, $statementUser);
         $conector = false;
 
 
         while($user=mysqli_fetch_array($queryUser)){
-            if("jere21000" == $user["username"] &&"jere21000" == $user["passuser"]){
+            if("jere21000" == $user["CODE_"]){
                 $conector = true;
             }
         }
@@ -51,8 +60,8 @@ print("<h1 class='titleBlogOfDay'>Blogs del dia</h1>");
 //mostrado de elementos
 
 
+if(isset($_SESSION["admin"]) && $_SESSION["admin"] == "admin"){
 
-        if( $conector == true){
 
             print("<div class=form__container id=form__container> 
                 <h1 class=titlecontainer>Publicar un articulo</h1>
@@ -71,7 +80,8 @@ print("<h1 class='titleBlogOfDay'>Blogs del dia</h1>");
                 </form>
                 
             </div>");
-            }
+
+}
 
             $statementpublication = "SELECT * FROM blogspot";
 
@@ -105,7 +115,28 @@ print("<h1 class='titleBlogOfDay'>Blogs del dia</h1>");
 
 
 ?>
-     
+   <style type="text/css">
+    .login {
+        background-color: #222;
+        color:#ddd;   
+        padding: .5em;
+        text-decoration: none;
+        font-family: arial;
+        border-radius: 3px;
+        transition:.3s;
+        border: 1px solid #222;
+    }
+    .login a{
+        border:0;
+    }
+    .login:hover{
+        transform-origin: bottom;
+        border-color:#ddd;
+        background-color: #333;
+        transition:.3s;
+        transform: translateX(3px);
+    }
+   </style>  
  </div>
 <script src="public/js/validation.js"></script>
 </body>
