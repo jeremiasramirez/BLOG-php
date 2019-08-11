@@ -1,7 +1,6 @@
 <?php
 session_start();
  
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -12,6 +11,7 @@ session_start();
     <title>Blogs</title>
     <link rel="stylesheet" href="public/css/index.css">
     <link rel="stylesheet" href="public/css/validation.css">
+    <link rel="stylesheet" href="fontawesome-free-5.9.0-web/css/all.min.css">
 </head>
 <body>
  <?php    
@@ -22,6 +22,10 @@ session_start();
                     <p class='login'><a href='php/login.php' class='login'>Iniciar sesion</a></p>
                 </nav>
             </header>";
+    }
+    else{
+        echo "<p class=admin>Sesion iniciada como administrador <span class='fas fa-user'></span></p>";
+        echo "<p class='goOut'> <a href='php/out.php'><span class='fas fa-sign-out-alt'></span></a></p>";
     }
 
 
@@ -136,6 +140,23 @@ if(isset($_SESSION["admin"]) && $_SESSION["admin"] == "admin"){
         transition:.3s;
         transform: translateX(3px);
     }
+
+    .admin{
+        background-color: red;
+        color: white;
+        font-weight: 600;
+        padding: .3em;
+        font-family: arial;
+        border-radius: 3px;
+    }
+    .goOut{
+        padding: .2em 1em;
+        background-color: #222;
+    }
+    .goOut a{
+        color: white;
+    }
+
    </style>  
  </div>
 <script src="public/js/validation.js"></script>
