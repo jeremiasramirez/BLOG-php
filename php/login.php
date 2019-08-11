@@ -10,12 +10,12 @@ $_SESSION["admin"];
 	<link rel="stylesheet" href="styles.css">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../public/css/index.css">
-	<!-- <link rel="stylesheet" href="fontawesome-free-5.9.0-web/css/all.min.css"> -->
+	<link rel="stylesheet" href="../fontawesome-free-5.9.0-web/css/all.min.css">
 </head>
 <body style="background-color: #333">
 
 <div class="responsivelogin">
-	<p class="title_login fas fa-user"></p>
+	<!-- <p class="title_login fas fa-user"></p> -->
 
 	<form action="" method="POST" class="form">
 
@@ -24,7 +24,7 @@ $_SESSION["admin"];
 		 
 		<br>
 		<button id="sendData">Ingresar como admin</button>
-	 
+	 	<p class='home'><a href="../index.php">Volver a inicio <span class='fas fa-home'></span></a></p>
 	</form>
  
 
@@ -55,6 +55,8 @@ $_SESSION["admin"];
         	$_SESSION["admin"] = "admin";
         	header("Location: ../index.php?init=admin");
         }
+        
+       
    
        
 ?> 
@@ -93,7 +95,15 @@ $_SESSION["admin"];
 	background-color: #222;
 	transform: translateX(3px);
 }
-
+.home{
+	padding: .5em;
+	border-radius: 5px;
+	background-color: #222
+}
+.home a{
+	color:#ddd;
+	font-family:arial;
+}
 
 
 </style>
