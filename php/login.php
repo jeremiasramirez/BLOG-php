@@ -24,7 +24,7 @@ $_SESSION["admin"];
 		 
 		<br>
 		<button id="sendData">Ingresar como admin</button>
-	 	<p class='home'><a href="../index.php">Volver a inicio <span class='fas fa-home'></span></a></p>
+	 	<p class='home'><a href="../index.php">INICIO <span class='fas fa-home'></span></a></p>
 	</form>
  
 
@@ -103,6 +103,8 @@ $_SESSION["admin"];
 .home a{
 	color:#ddd;
 	font-family:arial;
+	text-decoration: none;
+	font-family: arial;
 }
 
 
