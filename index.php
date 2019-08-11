@@ -1,6 +1,15 @@
 <?php
 session_start();
- 
+
+//requiriendo modulos
+include "php/model/model.php";
+include "php/validatingsession.php";
+include "views/panel.php";
+include "urlsmessages/emptycamps.php";
+include "urlsmessages/errorimages.php";
+include "urlsmessages/postarticles.php";
+include "views/showarticles.php";
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,32 +23,25 @@ session_start();
     <link rel="stylesheet" href="fontawesome-free-5.9.0-web/css/all.min.css">
 </head>
 <body>
- <?php    
-    if(!isset($_SESSION["admin"]) && $_SESSION["admin"]!="admin"){
+ <?php   
 
-       echo "<header>
-                <nav>
-                    <p class='login'><a href='php/login.php' class='login'>Iniciar sesion</a></p>
-                </nav>
-            </header>";
-    }
-    else{
-        echo "<p class=admin>Sesion iniciada como administrador <span class='fas fa-user'></span></p>";
-        echo "<p class='goOut'> <a href='php/out.php'><span class='fas fa-sign-out-alt'></span></a></p>";
-    }
+//validando si ha iniciado sesion como ADMIN
+$session_admin_value = "admin";
+$session_admin = $_SESSION["admin"];
+validatingsession($session_admin, $session_admin_value);
+ 
+ // validando que no haya campo vacios al publicar articulos
+$messagecamp = "empty";
+emptycamp($_GET["empty"], $messagecamp);
 
+// validando que se haya publicado el articulo exitosamente
+$articlevalue = "go";
+postarticles($_GET["go"], $articlevalue);
 
-if(isset($_GET["empty"]) && $_GET["empty"]=="empty"){
-    print("<p class='formEmpty' id=emptyCamp>No puede haber campos vacios</p>");
-}
-if(isset($_GET["go"]) && $_GET["go"]=="go"){
-    print("<p class='goForm' id=emptyCamp>Articulo publicado correctamente!</p>");
-   
-}
-if(isset($_GET["imgfailed"]) && $_GET["imgfailed"]=="imgfailed"){
-    print("<p class='formEmpty' id=formEmpty>Articulo no publicado debido a que falta una imagen en el articulo!</p>");
-   
-}
+// validando que se haya subido con la imagen
+$messagefailed = "imgfailed";
+messageerrorimages($_GET["imgfailed"], $messagefailed);
+
 
 
 
@@ -49,73 +51,15 @@ print("<h1 class='titleBlogOfDay'>Blogs del dia</h1>");
 
     <?php 
 
-        include "php/model/model.php";
-        $statementUser = "SELECT CODE_ from userRoot";
-        $queryUser = mysqli_query($conection, $statementUser);
-        $conector = false;
+     
+// valor de session de admin
+$session_value = "admin";
 
-
-        while($user=mysqli_fetch_array($queryUser)){
-            if("jere21000" == $user["CODE_"]){
-                $conector = true;
-            }
-        }
+// funcion que muestra el panel de publicar articulos
+getpanel($_SESSION["admin"], $session_value);
 
 //mostrado de elementos
-
-
-if(isset($_SESSION["admin"]) && $_SESSION["admin"] == "admin"){
-
-
-            print("<div class=form__container id=form__container> 
-                <h1 class=titlecontainer>Publicar un articulo</h1>
-                <form action='php/validating.php' method=post class=form__publish id=form__publish enctype='multipart/form-data'>
-                   
-                <input type='text'  placeholder='Titulo de mi articulo' name='title' class=title__article id=titleArticle>
-
-                        <textarea name='text' class='textPublish' placeholder='Descripcion de mi articulo' id='textPublish' cols='30' rows='10'></textarea>
-                            
-                        <p class=containerPhoto>
-                            <input type='file' name=photo id=photo class=photo >
-                        </p>
-
-                        <button class='button__publish' id=button__publish>Publicar articulo</button>
-
-                </form>
-                
-            </div>");
-
-}
-
-            $statementpublication = "SELECT * FROM blogspot";
-
-            $queryPublication = mysqli_query($conection, $statementpublication);
-
-                while($publication=mysqli_fetch_array($queryPublication)){
-                    print(
-                        "<section class=publication id=publication>
-                            
-                            <span class='time__blog'>$publication[blogDateTime]</span>
-                            <article class='articleBlog' id='articleBlog'>
-                                <h1 class='titleArticle'>$publication[blogTitle]</h1>
-                                <div class=containerimg>
-                                <img src='php/uploads/blogsimg/$publication[blogImage]' class='imageArticle' id='imageArticle' />
-                                </div>
-                                <div class='containerDescription'>
-                                <p class='descriptionArticle' id='descriptionArticle'> 
-                                   $publication[blogDescription]
-                                </p>
-                                </div>
-                            </article>
-
-                        </section>
-                        "
-                    );  
-            }
-
-
-
-
+showarticles($conection);
 
 
 ?>
@@ -142,7 +86,7 @@ if(isset($_SESSION["admin"]) && $_SESSION["admin"] == "admin"){
     }
 
     .admin{
-        background-color: red;
+        background-color: blue;
         color: white;
         font-weight: 600;
         padding: .3em;
