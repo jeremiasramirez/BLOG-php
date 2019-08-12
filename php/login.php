@@ -7,15 +7,14 @@ $_SESSION["admin"];
 <head>
 	<meta charset="UTF-8">
 	<title>Login</title>
-	<link rel="stylesheet" href="styles.css">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="../public/css/index.css">
-	<link rel="stylesheet" href="../fontawesome-free-5.9.0-web/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="../fontawesome-free-5.9.0-web/css/all.min.css">
 </head>
 <body style="background-color: #333">
 
 <div class="responsivelogin">
-	<!-- <p class="title_login fas fa-user"></p> -->
+
 
 	<form action="" method="POST" class="form">
 
@@ -24,7 +23,10 @@ $_SESSION["admin"];
 		 
 		<br>
 		<button id="sendData">Ingresar como admin</button>
+	 	 
+	 		
 	 	<p class='home'><a href="../index.php">INICIO <span class='fas fa-home'></span></a></p>
+	 	
 	</form>
  
 
@@ -95,16 +97,45 @@ $_SESSION["admin"];
 	background-color: #222;
 	transform: translateX(3px);
 }
-.home{
-	padding: .5em;
-	border-radius: 5px;
-	background-color: #222
-}
+ 
 .home a{
+	border-radius: 5px;
+	background-color: #222;
+	padding:1em 2em;
 	color:#ddd;
 	font-family:arial;
 	text-decoration: none;
 	font-family: arial;
+	transition:.3s;
+}
+.home a:hover{
+	opacity: .7;
+	transition:.3s;
+	background-color: black; 
+}
+.error{
+	color: white;
+	text-align: center;
+	margin: .3em;
+	border:none;
+	border-radius: 3px;
+	background-color: red;
+	padding:1em .5em;
+
+	font-family: arial;
+	font-weight: 600;
+	animation: hiddenelement 4s .3s linear;
+	transition: .3s; 
+	position: absolute;
+	bottom:0;
+	left:0;
+}
+@keyframes hiddenelement{
+	to{
+		transform: translateY(-200px);
+		opacity: 0;
+		transition: 1s;
+	}
 }
 
 
@@ -113,10 +144,7 @@ $_SESSION["admin"];
 
 
 
-
-
-
-<script src="validator.js"></script>
+<script src="../public/login.js"></script>
  
 </body>
 </html>
