@@ -10,7 +10,7 @@ if(isset($_FILES["photo"]) == "" || $_POST["title"] ==""  || empty($_POST["title
 else
 {
     if( ($_FILES["photo"]["error"]) == UPLOAD_ERR_OK){
-
+         
         $destinateToImage = "uploads/blogsimg/";
         $destinateToImage = $destinateToImage . $_FILES["photo"]["name"];
         move_uploaded_file($_FILES["photo"]["tmp_name"], $destinateToImage);
