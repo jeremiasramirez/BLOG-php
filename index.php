@@ -22,6 +22,7 @@ include "views/showarticles.php";
     <link rel="stylesheet" href="public/css/validation.css">
     <link rel="stylesheet" href="fontawesome-free-5.9.0-web/css/all.min.css">
     <link rel="stylesheet" href="public/css/index.css">
+    <link rel="stylesheet" href="public/css/lib/jeremias-lib/jeremias-lib.css">
 </head>
 <body>
  <?php   

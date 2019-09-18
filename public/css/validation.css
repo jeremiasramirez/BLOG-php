@@ -21,3 +21,27 @@
     }
 
 }
+.panel {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: 50% 50% 50%;
+    justify-content: center;
+    justify-items:center;
+    grid-template-columns: 50% 50%;
+    background-color: #444;
+    padding: 2em .2em;
+    width: 98%;
+}
+.panel li{
+      list-style: none;
+}
+.link{
+
+    color: #aaa;
+    font-family: arial;
+    text-decoration: none;
+}
+.panel li .link:hover{
+    color: #ddd;
+    transition: .3s;
+}

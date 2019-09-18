@@ -4,7 +4,7 @@ include "model/model.php";
 if(isset($_FILES["photo"]) == "" || $_POST["title"] ==""  || empty($_POST["title"]) || $_POST["text"] == "" || !ctype_space($_POST["title"])!=1 || !ctype_space($_POST["text"])!=1 )
 {
 
-    header("Location: ../index.php?empty=empty");
+    header("Location: /blogs?empty=empty");
 
 }
 else
@@ -30,11 +30,11 @@ else
             
         $statementinsert = "INSERT into blogspot (blogTitle, blogDescription, blogImage, blogDateTime) VALUES ('$title', '$text', '$photo', '$times')";
         mysqli_query($conection, $statementinsert);
-        header("Location: ../index.php?go=go");
+        header("Location: /blogs?go=go");
          }
     }
     else{
-        header("Location: ../index.php?imgfailed=imgfailed");
+        header("Location: /blogs?imgfailed=imgfailed");
     }
 }
 

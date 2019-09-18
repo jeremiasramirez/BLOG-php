@@ -25,7 +25,7 @@ $_SESSION["admin"];
 		<button id="sendData">Ingresar como admin</button>
 	 	 
 	 		
-	 	<p class='home'><a href="../index.php">INICIO <span class='fas fa-home'></span></a></p>
+	 	<p class='home'><a href="/blogs">INICIO <span class='fas fa-home'></span></a></p>
 	 	
 	</form>
  
@@ -55,7 +55,7 @@ $_SESSION["admin"];
 
         if($conector === true){
         	$_SESSION["admin"] = "admin";
-        	header("Location: ../index.php?init=admin");
+        	header("Location: /blogs");
         }
         
        
