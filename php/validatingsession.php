@@ -6,10 +6,19 @@ session_start();
 function session_init(){
 	echo "<p class=admin>Sesion iniciada como administrador <span class='fas fa-user'></span></p>";
 }
+ 
+function panelmanager(){
+	echo "<article><h3  class=btn--rm>Panel de control de administrador</h3></article>
+	<div class=panel> 
 
-//message close session of admin
-function session_out(){
-	echo "<p class='goOut'> <a href='php/out.php'><span class='fas fa-sign-out-alt'></span></a></p>";
+			<li class=''><a class=link  href=#>Agregar admin</a></li>	
+			<li class=''><a class=link  href=#>Quitar admin</a></li>	
+			<li class=''><a class=link  href=#>Administrar admin</a></li>	
+			<li class=''><a class=link  href=#>Buscar articulos</a></li>	
+			<li class=''><a class=link href=#>Eliminar todos los articulos</a></li>	
+	 		<li class=''> <a href='php/exit/' class=link>Salir <span class='link fas fa-sign-out-alt'></span></a></li>
+			 
+		</div>";
 }
 
 function validatingsession($session_admin, $session_admin_value){
@@ -21,7 +30,7 @@ function validatingsession($session_admin, $session_admin_value){
             </header>";
 	}
 	else{
-		session_init();
-		session_out();   
+		session_init(); 
+		panelmanager();
 	}
 }
