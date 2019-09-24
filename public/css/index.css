@@ -187,11 +187,23 @@ body{
 .responsivelogin{
     display: flex;
     justify-content: center;
-    align-items: center;
+    flex-direction: column;
   
 }
 #code{
-    padding:1em;
+    padding:.9em;
+    width: 300px;
+    height: 30px;
+}
+
+
+#codeuser{
+    padding:.9em;
+    border:none;
+    border-radius: 3px;
+    font-family: arial;
+    font-size: 16px;
+    height: 20px;
     width: 300px;
 }
 

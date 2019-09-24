@@ -1,6 +1,7 @@
 
 	// let form =  document.getElementById("form__publish");
 let title = document.getElementById("code");
+let codeuser = document.getElementById("codeuser");
  
 // let description = document.getElementById("textPublish");
 let btnSend = document.getElementById("sendData");
@@ -34,13 +35,13 @@ function messageError(){
 
 }
 
-(function validationForm(title,btn){
+(function validationForm(title,btn, codeuser){
 
-    if((title) && (btn) ){
+    if((title) && (btn) && (codeuser)){
 
         btn.addEventListener("click", (e)=>{
             
-            if( (title.value) == ""){
+            if( (title.value) == "" || (codeuser.value)  == "" ){
                 e.preventDefault();
                 messageError();
                 document.body.classList.add("bodyError");
@@ -66,4 +67,4 @@ function messageError(){
 
     }
 
-})(title, btnSend);
+})(title, btnSend, codeuser);

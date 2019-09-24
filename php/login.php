@@ -19,6 +19,7 @@ $_SESSION["admin"];
 	<form action="" method="POST" class="form">
 
 		<p id="error_login" class="error_login"></p>
+		<input type="text" name="codeuser" placeholder="USER CODE"  id="codeuser" autocomplete="off">
 		<input type="password" name="code" placeholder="ADMIN CODE"  id="code" autocomplete="off">
 		 
 		<br>
@@ -37,15 +38,15 @@ $_SESSION["admin"];
 
 <?php 
        include "model/model.php";
-        $statementUser = "SELECT CODE_ from userRoot";
+        $statementUser = "SELECT CODE_ , username FROM userRoot";
         $queryUser = mysqli_query($conection, $statementUser);
         $conector = false;
-
-        if(isset($_POST["code"]) && !empty($_POST["code"])){
+        $users = $_POST['codeuser'];
+        if(isset($_POST["code"]) && $_POST['codeuser'] && !empty($_POST['codeuser']) && !empty($_POST["code"])){
         	$code = $_POST["code"];
 	        while($user=mysqli_fetch_array($queryUser)){
 
-	            if($code == $user["CODE_"]){
+	            if($code == $user["CODE_"] && $users == $user['username']){
 	                $conector = true;
 	            }
 
