@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-
+ 
 //message session init with admin
 function session_init(){
 	echo "<p class=admin>Sesion iniciada como administrador <span class='fas fa-user'></span></p>";
@@ -12,11 +12,11 @@ function panelmanager(){
 	<div class=panel> 
 
 			<li class=''><a class=link  href='manager/addadmin/'>Agregar admin</a></li>	
-			<li class=''><a class=link  href=#>Quitar admin</a></li>	
+			<li class=''><a class=link  href='manager/removeadmin/'>Quitar admin</a></li>	
 			<li class=''><a class=link  href='manager/alladmin/'>Mostrar todos los admin</a></li>	
 			<li class=''><a class=link  href=#>Buscar articulos</a></li>	
 			<li class=''><a class=link href=#>Eliminar todos los articulos</a></li>	
-	 		<li class=''> <a href='php/exit/' class=link>Salir <span class='link fas fa-sign-out-alt'></span></a></li>
+	 		<li class=''> <a href='/blogs/php/exit/' class=link>Salir <span class='link fas fa-sign-out-alt'></span></a></li>
 			 
 		</div>";
 }

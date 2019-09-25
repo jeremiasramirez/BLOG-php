@@ -1,6 +1,18 @@
 <?php 
 
 function manager($timem){
+	if($timem==11){
+		return 11;
+	}
+	if($timem==10){
+		return 10;
+	}
+	if($timem==9){
+		return 9;
+	}
+	if($timem==0){
+		return 12;
+	}
 	if($timem== 13){
 		return 1;
 	}

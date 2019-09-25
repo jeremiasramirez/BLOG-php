@@ -37,7 +37,8 @@ else
             $mm = getsimpletime()['m'];
             $ss = getsimpletime()['s'];
 
-            if($h < 13){
+            $t = "$hh".":"."$mm".":"."$ss";
+            if($h < 12){
                 $t = "$hh".":"."$mm".":"."$ss"." A.M";
             }
             else{

@@ -1,5 +1,6 @@
 <?php 
 session_start();
+
 if(!$_SESSION["admin"]){
 	header("Location: /blogs/php/exit/");	
 }
@@ -14,6 +15,7 @@ if(!$_SESSION["admin"]){
 	<link rel="stylesheet" type="text/css" href="/blogs/fontawesome-free-5.9.0-web/css/all.min.css">
 </head>
 <body style="background-color: #333">
+ 
 <div class="containertitlepage">
 	<h1>Agregar admin</h1>
 </div>

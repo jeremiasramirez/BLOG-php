@@ -30,8 +30,8 @@ if(!$_SESSION["admin"]){
       	 	$statement = mysqli_query($conection,  "SELECT * FROM userRoot ORDER BY user_id desc"); 
                echo	"<table  style=';'>
         			<th > ID </th>
-        			<th > Username </th>
-        			<th > pass </th> ";
+        			<th > USERNAME </th>
+        			<th > PASSWORD </th> ";
         	while($user = mysqli_fetch_array($statement)){
         		 echo " 
 
@@ -41,7 +41,6 @@ if(!$_SESSION["admin"]){
         			 		<td style='text-align:center'>$user[CODE_]</td>
         			 	</tr>
 
-        			
         		";
         	}
         echo " </table>"
