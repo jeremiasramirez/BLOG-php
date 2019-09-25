@@ -2,7 +2,7 @@
 session_start();
 
 function showarticles($conection){
-    $statementpublication = "SELECT * FROM blogspot";
+    $statementpublication = "SELECT * FROM blogspot ORDER BY blog_id DESC LIMIT 100 ";
 	$queryPublication = mysqli_query($conection, $statementpublication);
 
 
@@ -10,7 +10,8 @@ function showarticles($conection){
                 print(
                     "<section class=publication id=publication>
                             
-                        <span class='time__blog'>$publication[blogDateTime]</span>
+                        <span class='time__blog'>$publication[blogDateTime] -     <span class='time__blog'>$publication[timeless]</span></span>
+                    
 
                         <article class='articleBlog' id='articleBlog'>
 

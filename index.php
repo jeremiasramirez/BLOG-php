@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+ include "php/lib/managertime.php";
 //requiriendo modulos
 include "php/model/model.php";
 include "php/validatingsession.php";
@@ -27,6 +27,7 @@ include "views/showarticles.php";
 <body>
  <?php   
 
+ 
 //validando si ha iniciado sesion como ADMIN
 $session_admin_value = "admin";
 $session_admin = $_SESSION["admin"];

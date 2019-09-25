@@ -11,9 +11,9 @@ function panelmanager(){
 	echo "<article><h3  class=btn--rm>Panel de control de administrador</h3></article>
 	<div class=panel> 
 
-			<li class=''><a class=link  href=#>Agregar admin</a></li>	
+			<li class=''><a class=link  href='manager/addadmin/'>Agregar admin</a></li>	
 			<li class=''><a class=link  href=#>Quitar admin</a></li>	
-			<li class=''><a class=link  href=#>Administrar admin</a></li>	
+			<li class=''><a class=link  href='manager/alladmin/'>Mostrar todos los admin</a></li>	
 			<li class=''><a class=link  href=#>Buscar articulos</a></li>	
 			<li class=''><a class=link href=#>Eliminar todos los articulos</a></li>	
 	 		<li class=''> <a href='php/exit/' class=link>Salir <span class='link fas fa-sign-out-alt'></span></a></li>

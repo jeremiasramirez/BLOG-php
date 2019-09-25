@@ -1,34 +1,36 @@
 <?php 
 session_start();
-$_SESSION["admin"];
+if(!$_SESSION["admin"]){
+	header("Location: /blogs/php/exit/");	
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Login</title>
+	<title>Add admin</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="../public/css/index.css">
-	<link rel="stylesheet" type="text/css" href="../fontawesome-free-5.9.0-web/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="/blogs/public/css/index.css">
+	<link rel="stylesheet" type="text/css" href="/blogs/fontawesome-free-5.9.0-web/css/all.min.css">
 </head>
 <body style="background-color: #333">
 <div class="containertitlepage">
-	<h1>Iniciar sesion como admin</h1>
+	<h1>Agregar admin</h1>
 </div>
+	 	<p class='home'><a href="/blogs">INICIO <span class='fas fa-home'></span></a></p>
 <div class="responsivelogin">
 
 
 	<form action="" method="POST" class="form">
 
 		<p id="error_login" class="error_login"></p>
-		<input type="text" name="codeuser" placeholder="USER CODE"  id="codeuser" autocomplete="off">
-		<input type="password" name="code" placeholder="ADMIN CODE"  id="code" autocomplete="off">
+		<input type="text" name="adduser" placeholder="USER CODE"  id="codeuser" autocomplete="off">
+		<input type="password" name="addcode" placeholder="ADMIN CODE"  id="code" autocomplete="off">
 		 
 		<br>
-		<button id="sendData">Ingresar como admin</button>
+		<button id="sendData">Agregar admin</button>
 	 	 
 	 		
-	 	<p class='home'><a href="/blogs">INICIO <span class='fas fa-home'></span></a></p>
 	 	
 	</form>
  
@@ -39,26 +41,22 @@ $_SESSION["admin"];
 
 
 <?php 
-       include "model/model.php";
-        $statementUser = "SELECT CODE_ , username FROM userRoot";
-        $queryUser = mysqli_query($conection, $statementUser);
+        
+       $conection =mysqli_connect("localhost", "jere", "0847", "Blogs");
+     
         $conector = false;
-        $users = $_POST['codeuser'];
-        if(isset($_POST["code"]) && $_POST['codeuser'] && !empty($_POST['codeuser']) && !empty($_POST["code"])){
-        	$code = $_POST["code"];
-	        while($user=mysqli_fetch_array($queryUser)){
-
-	            if($code == $user["CODE_"] && $users == $user['username']){
-	                $conector = true;
-	            }
-
-	        }
+        $users = $_POST['adduser'];
+        $code = $_POST['addcode'];
+        if((isset($users) && !empty($users)) && (isset($code) && !empty($code))){
+        	$conector = true;
 
         }
-
-        if($conector === true){
-        	$_SESSION["admin"] = "admin";
-        	header("Location: /blogs");
+ 
+        if($conector == true){
+      	 	$statement = mysqli_query($conection, "INSERT INTO userRoot (username, CODE_) VALUES ('$users', '$code')");
+        	if($statement){
+        		header("Location: /blogs/manager/alladmin/");
+        	}
         }
         
        
@@ -140,7 +138,7 @@ $_SESSION["admin"];
 		transition: 1s;
 	}
 }
-	div h1{
+ 	div h1{
 		font-family: arial;
  		color: #ddd;
  	}
@@ -150,7 +148,7 @@ $_SESSION["admin"];
 
 
 
-<script src="../public/login.js"></script>
+<script src="/blogs/public/login.js"></script>
  
 </body>
 </html>

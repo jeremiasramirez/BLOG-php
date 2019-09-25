@@ -1,6 +1,8 @@
 <?php 
 session_start();
 include "model/model.php";
+ include "../php/lib/managertime.php";
+
 if(isset($_FILES["photo"]) == "" || $_POST["title"] ==""  || empty($_POST["title"]) || $_POST["text"] == "" || !ctype_space($_POST["title"])!=1 || !ctype_space($_POST["text"])!=1 )
 {
 
@@ -27,10 +29,23 @@ else
         $photo=$_FILES['photo']["name"];
 
        if($title!=""){
-            
-        $statementinsert = "INSERT into blogspot (blogTitle, blogDescription, blogImage, blogDateTime) VALUES ('$title', '$text', '$photo', '$times')";
-        mysqli_query($conection, $statementinsert);
-        header("Location: /blogs?go=go");
+   
+            $h = getdate()['hours'];
+            $m = getdate()['minutes'];
+            $s = getdate()['seconds'];
+            $hh = getsimpletime()['h'];
+            $mm = getsimpletime()['m'];
+            $ss = getsimpletime()['s'];
+
+            if($h < 13){
+                $t = "$hh".":"."$mm".":"."$ss"." A.M";
+            }
+            else{
+                $t = "$hh".":"."$mm".":"."$ss"." P.M";
+            }
+        $statementinsert = "INSERT into blogspot (blogTitle, blogDescription, blogImage, blogDateTime, timeless) VALUES ('$title', '$text', '$photo', '$times', '$t')";
+            mysqli_query($conection, $statementinsert);
+            header("Location: /blogs?go=go");
          }
     }
     else{
