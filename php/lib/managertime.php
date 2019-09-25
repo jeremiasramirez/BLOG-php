@@ -4,6 +4,12 @@ function manager($timem){
 	if($timem==11){
 		return 11;
 	}
+	if($timem==12){
+		return 12;
+	}
+	if($timem==11){
+		return 11;
+	}
 	if($timem==10){
 		return 10;
 	}
