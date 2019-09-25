@@ -95,14 +95,15 @@ if(!$_SESSION["admin"]){
  		color: #ddd;
  	}
  	.home a{
-	border-radius: 5px;
-	background-color: #222;
-	padding:1em 2em;
-	color:#ddd;
-	font-family:arial;
-	text-decoration: none;
-	font-family: arial;
-	transition:.3s;
+		border-radius: 5px;
+		background-color: black;
+		padding:1em 2em;
+		border: 1px solid #ddd;
+		color:#ddd;
+		font-family:arial;
+		text-decoration: none;
+		font-family: arial;
+		transition:.3s;
 }
 .home a:hover{
 	opacity: .7;

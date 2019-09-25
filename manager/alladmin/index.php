@@ -88,6 +88,7 @@ if(!$_SESSION["admin"]){
 	border-radius: 5px;
 	background-color: #222;
 	padding:1em 2em;
+		border: 1px solid #ddd;
 	color:#ddd;
 	font-family:arial;
 	text-decoration: none;

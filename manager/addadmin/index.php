@@ -110,6 +110,7 @@ if(!$_SESSION["admin"]){
 	text-decoration: none;
 	font-family: arial;
 	transition:.3s;
+		border: 1px solid #ddd;
 }
 .home a:hover{
 	opacity: .7;
